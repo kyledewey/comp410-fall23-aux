@@ -93,3 +93,18 @@ sublist([_|T], L2) :-
     % choose to ignore the element; don't put
     % it in the output list
     sublist(T, L2).
+
+
+myReverse(List, X) :-
+    myReverse(List, [], X).
+
+myReverse([], A, A).
+myReverse([Head|Tail], A, X) :-
+    myReverse(Tail, [Head|A], X).
+
+% def reverse[A](input: List[A], accum: List[A]): List[A] = {
+%   input match {
+%     case head :: tail => reverse(tail, head :: accum)
+%     case Nil => accum
+%   }
+% }
